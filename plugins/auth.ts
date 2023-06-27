@@ -6,7 +6,7 @@ export default defineNuxtPlugin((ctx: any) => {
   }
 
   const {fetchUser, fetchToken} = useUser()
-  fetchToken();
-  fetchUser();
+  fetchToken().then(() => fetchUser()).catch(() => console.log('error'));
+
   return {}
 })
