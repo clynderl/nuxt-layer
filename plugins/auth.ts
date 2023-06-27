@@ -1,12 +1,12 @@
 import {useUser} from "../composables/useUser";
 
-export default defineNuxtPlugin(async (ctx: any) => {
+export default defineNuxtPlugin((ctx: any) => {
   if (ctx.payload.error) {
     return {};
   }
 
   const {fetchUser, fetchToken} = useUser()
-  await fetchToken();
-  await fetchUser();
+  fetchToken();
+  fetchUser();
   return {}
 })
